@@ -28,7 +28,7 @@ class Voter(Commissioner):
     course = models.CharField(max_length=250)
     program = models.CharField(max_length=50)
     image_url = models.CharField(max_length=250)
-
+    sex = models.CharField(max_length=25)
 
 class Candidate(Commissioner):
     # first_name = models.CharField(max_length=50)
