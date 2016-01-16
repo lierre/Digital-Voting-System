@@ -1,17 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Commissioner(models.Model):
     # A model for the commissioners table
 
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    user_name = models.CharField(max_length=50)
-    email = models.EmailField()
-    date_created = models.DateField(auto_now_add=True)
+    # This line is required to link commissioner to an instance of User model
+    user = models.OneToOneField(User)
 
     def __str__(self):
-        return self.user_name
+        return self.user.username
 
 
 class Category(models.Model):
@@ -27,8 +25,8 @@ class Category(models.Model):
 class Voter(models.Model):
     # A model for the voters table
 
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    # This line is required to link voter to an instance of User model
+    user = models.OneToOneField(User)
     commissioner = models.ForeignKey(Commissioner)      # A commissioner has many voters hence the category fk
     faculty = models.CharField(max_length=150)
     department = models.CharField(max_length=50)
@@ -38,12 +36,13 @@ class Voter(models.Model):
     sex = models.CharField(max_length=25)
 
     def __str__(self):
-        return "%s %s" % (self.first_name, self.last_name)
+        return "%s %s" % (self.user.first_name, self.user.last_name)
 
 
 class Candidate(models.Model):
     # A model for the candidates table
 
+    picture = models.ImageField(upload_to='profile_images', blank=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     user_name = models.CharField(max_length=50)
@@ -68,7 +67,7 @@ class Votes(models.Model):
     created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.voter
+        return self.voter.last_name
 
 
 
