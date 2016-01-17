@@ -19,6 +19,7 @@ from voter import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^home/$', views.home, name='home'),
     url(r'^register/$', views.register, name='register'),
-
+    url(r'^login/$', views.user_login, name='login')
 ]
