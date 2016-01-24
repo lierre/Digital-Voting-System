@@ -37,7 +37,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Register the voter app
     'voter',
+
+    # Register bootstrap3 so that it can be used by the app
+    'bootstrap3',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'voting',
         'USER': 'root',
-        'PASSWORD': '0733866876',
+        'PASSWORD': 'enter-your-password',
     }
 }
 

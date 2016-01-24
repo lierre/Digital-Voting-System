@@ -6,7 +6,12 @@ from django.contrib.auth import authenticate, login
 
 
 def home(request):
-    return HttpResponse("Welcome to our home page")
+    # get request context
+    context = RequestContext(request)
+
+    voter = True
+
+    return render_to_response('home.html', {'voter': voter}, context)
 
 
 def register(request):

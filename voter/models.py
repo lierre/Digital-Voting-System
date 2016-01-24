@@ -36,7 +36,7 @@ class Voter(models.Model):
     sex = models.CharField(max_length=25)
 
     def __str__(self):
-        return "%s %s" % (self.user.first_name, self.user.last_name)
+        return "{0} {1}".format(self.user.first_name, self.user.last_name)
 
 
 class Candidate(models.Model):
@@ -67,7 +67,7 @@ class Votes(models.Model):
     created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.voter.last_name
+        return "{0} {1}".format(self.voter.first_name, self.voter.last_name)
 
 
 

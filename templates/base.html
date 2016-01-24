@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<html>
+
+    <head>
+
+        {# Load the tag library #}
+        {% load bootstrap3 %}
+
+        {# Load CSS  #}
+        {% bootstrap_css %}
+
+        {# Load user designed css files #}
+         <link href="{%  static 'css/style.css' %}" rel="stylesheet" media="screen"/>
+    </head>
+
+    <body>
+
+        {# If the user is a voter show the top navigation #}
+        {% if voter %}
+            {% include 'nav.html' %}
+
+        {# Otherwise the user is an admin, show the side navigation #}
+        {% else %}
+            {% include 'admin_nav.html' %}
+        {% endif %}
+
+        {# Views that extend block content will be rendered between block content and endblock #}
+        {% block content %}
+        {% endblock %}
+
+
+        {# Load JS files #}
+        {% bootstrap_javascript %}
+    </body>
+
+</html>
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{#{% bootstrap_messages %}#}
