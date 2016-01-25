@@ -21,16 +21,22 @@
 
         {# Otherwise the user is an admin, show the side navigation #}
         {% else %}
-            {% include 'admin_nav.html' %}
+            {% include 'admin/admin_nav.html' %}
         {% endif %}
 
         {# Views that extend block content will be rendered between block content and endblock #}
-        {% block content %}
-        {% endblock %}
+        <div class="central">
+            {% block content %}
+            {% endblock %}
+        </div>
 
+        {# Load jquery resources #}
+{#        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>#}
+{#        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>#}
 
         {# Load JS files #}
         {% bootstrap_javascript %}
+        <script src="{% static 'js/nav.js' %}" type="text/javascript"></script>
     </body>
 
 </html>

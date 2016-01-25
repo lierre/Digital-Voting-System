@@ -1,4 +1,4 @@
-<nav class="navbar  navbar-inverse navbar-fixed-top"  role="navigation">
+<nav class="navbar  navbar-inverse navbar-fixed-top "  role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Vote</a>
@@ -12,14 +12,14 @@
 </nav>
 <div class="container-fluid">
    <div class="row">
-      <div class="col-sm-3 hidden-xs">
+      <div class="col-sm-3 hidden-xs ">
          <!--Affix start-->
-         <div data-spy="affix" data-offset-top="0">
+         <div data-spy="affix" data-offset-top="0" class="admin_nav">
             <div class="list-group">
-               <a href="#" class="list-group-item active">Dashboard</a>
-               <a href="#" class="list-group-item">Candidates</a>
-               <a href="#" class="list-group-item">Voters</a>
-               <a href="#" class="list-group-item">Actvities</a>
+               <a href="{% url 'dashboard' %}"  class="list-group-item active">Dashboard</a>
+               <a href="{% url 'candidates'  %}" class="list-group-item">Candidates</a>
+               <a href="{% url 'voters'  %}" class="list-group-item">Voters</a>
+               <a href="{% url 'activities' %}" class="list-group-item">Actvities</a>
             </div>
          </div>
          <!--Affix end-->

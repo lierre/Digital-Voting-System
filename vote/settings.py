@@ -43,6 +43,9 @@ INSTALLED_APPS = (
 
     # Register bootstrap3 so that it can be used by the app
     'bootstrap3',
+
+    # Used to tell if a link is active
+    'django_activeurl',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -70,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.request',
             ],
         },
     },
