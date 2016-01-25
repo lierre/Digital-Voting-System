@@ -9,9 +9,66 @@ def home(request):
     # get request context
     context = RequestContext(request)
 
+    # Voter is set so as to determine which navigation type is used
+    # If user is a voter, they see a top navigation bar else they see a side bar
     voter = True
 
     return render_to_response('home.html', {'voter': voter}, context)
+
+
+def vote(request):
+    # get request context
+    context = RequestContext(request)
+
+    # Voter is set so as to determine which navigation type is used
+    # If user is a voter, they see a top navigation bar else they see a side bar
+    voter = True
+
+    return render_to_response('vote.html', {'voter': voter}, context)
+
+
+def dashboard(request):
+    # get request context
+    context = RequestContext(request)
+
+    # Voter is set so as to determine which navigation type is used
+    # If user is a voter, they see a top navigation bar else they see a side bar
+    voter = False
+
+    return render_to_response('admin/dashboard.html', {'voter': voter}, context)
+
+
+def candidates(request):
+    # get request context
+    context = RequestContext(request)
+
+    # Voter is set so as to determine which navigation type is used
+    # If user is a voter, they see a top navigation bar else they see a side bar
+    voter = False
+
+    return render_to_response('admin/candidates.html', {'voter': voter}, context)
+
+
+def voters(request):
+    # get request context
+    context = RequestContext(request)
+
+    # Voter is set so as to determine which navigation type is used
+    # If user is a voter, they see a top navigation bar else they see a side bar
+    voter = False
+
+    return render_to_response('admin/voters.html', {'voter': voter}, context)
+
+
+def activities(request):
+    # get request context
+    context = RequestContext(request)
+
+    # Voter is set so as to determine which navigation type is used
+    # If user is a voter, they see a top navigation bar else they see a side bar
+    voter = False
+
+    return render_to_response('admin/activities.html', {'voter': voter}, context)
 
 
 def register(request):
